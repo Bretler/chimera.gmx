@@ -73,9 +73,7 @@
     <sprite>sprites\spr_deck</sprite>
     <sprite>sprites\spr_card</sprite>
   </sprites>
-  <backgrounds name="background">
-    <background>background\bg_title_screen</background>
-  </backgrounds>
+  <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="csv scrips">
@@ -96,9 +94,6 @@
   <objects name="objects">
     <object>objects\obj_card_parent</object>
     <object>objects\obj_global_controller</object>
-    <objects name="menu buttons">
-      <object>objects\obj_title_button</object>
-    </objects>
     <object>objects\obj_mouse_orb</object>
     <objects name="attk/def buttons">
       <object>objects\obj_attk_plus</object>
@@ -109,7 +104,6 @@
     <object>objects\obj_deck</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\title_screen</room>
     <room>rooms\play</room>
   </rooms>
   <help>
