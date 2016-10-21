@@ -264,8 +264,8 @@ if (!global.floating_def and !global.floating_attk) { // if we're not floating a
     if (global.can_select){ // &amp; we're not currently selecting a card -
         selected = true; // "select" clicked card
         global.can_select = false; // don't allow selection of other cards
-        xpart = mouse_x-x; // calculate distance between mouse, and card edge
-        ypart = mouse_y-y; // calculate distance between mouse, and card top
+        xpart = mouse_x - x; // calculate distance between mouse, and card edge
+        ypart = mouse_y - y; // calculate distance between mouse, and card top
     }
     
     // FIX THIS TYLER, WHY NO IT WORK?!
