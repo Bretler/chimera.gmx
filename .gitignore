@@ -45,3 +45,19 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+Configs/Default/AmazonFire/icons/banner.png
+Configs/Default/AmazonFire/icons/icon_hdpi.png
+Configs/Default/AmazonFire/icons/icon_ldpi.png
+Configs/Default/AmazonFire/icons/icon_mdpi.png
+Configs/Default/AmazonFire/icons/icon_xhdpi.png
+Configs/Default/AmazonFire/icons/icon_xxhdpi.png
+Configs/Default/AmazonFire/icons/icon_xxxhdpi.png
+Configs/Default/WindowsUAP/WinUWPRunner_TemporaryKey.pfx
+Configs/Default/WindowsUAP/SplashScreen.scale-100.png
+Configs/Default/Windows8/Win8NativeRunner_TemporaryKey.pfx
+Configs/Default/windows/Runner_Icon_256.ico
+Configs/Default/Windows8/Windows8_TemporaryKey.pfx
+Configs/Default/AmazonFire/icons/ouyaIcon.png
+Configs/Default/AmazonFire/portrait_splash.png
+Configs/Default/AmazonFire/splash.png
+*.png
