@@ -73,7 +73,9 @@
     <sprite>sprites\spr_deck</sprite>
     <sprite>sprites\spr_card</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background1</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="csv scrips">
