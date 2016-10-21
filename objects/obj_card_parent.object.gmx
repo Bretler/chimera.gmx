@@ -149,6 +149,7 @@ if (selected) {
 // resets the double-click while moving the card 
     if (x != xprevious || y != yprevious) clicks = 0; // if the card moved, reset double-click
 
+
 </string>
           </argument>
         </arguments>
