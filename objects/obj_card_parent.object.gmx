@@ -146,7 +146,8 @@ if (selected) {
     y = mouse_y - ypart; // keeps the card the same distance from the mouse when clicked
 }
 
-    
+// resets the double-click while moving the card 
+    if (x != xprevious || y != yprevious) clicks = 0; // if the card moved, reset double-click
 
 </string>
           </argument>
@@ -264,17 +265,14 @@ if (!global.floating_def and !global.floating_attk) { // if we're not floating a
     if (global.can_select){ // &amp; we're not currently selecting a card -
         selected = true; // "select" clicked card
         global.can_select = false; // don't allow selection of other cards
-        xpart = mouse_x-x; // calculate distance between mouse, and card edge
-        ypart = mouse_y-y; // calculate distance between mouse, and card top
+        xpart = mouse_x - x; // calculate distance between mouse, and card edge
+        ypart = mouse_y - y; // calculate distance between mouse, and card top
     }
     
-    // FIX THIS TYLER, WHY NO IT WORK?!
-    if (x != xprevious || y !=yprevious) clicks = 0; // if the card moved, reset double-click
-
     // double-click &amp; sap code
     if (clicks == 0) {
         clicks = 1; // document click 1 of 2
-        alarm[0] = 25; // time to perform a double click
+        alarm[0] = 15; // time to perform a double click
     } else if (clicks == 1){
     
         // perform double click action
