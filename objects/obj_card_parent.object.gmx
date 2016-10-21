@@ -270,10 +270,6 @@ if (!global.floating_def and !global.floating_attk) { // if we're not floating a
         ypart = mouse_y - y; // calculate distance between mouse, and card top
     }
     
-<<<<<<< HEAD
-    
-=======
->>>>>>> refs/remotes/origin/master
     // double-click &amp; sap code
     if (clicks == 0) {
         clicks = 1; // document click 1 of 2

@@ -46,11 +46,11 @@ global.floating_attk_amount = 0;
 global.can_select = true; // allow selection of cards t/f
 
 // (hrm hrm, witty comment)
-<<<<<<< HEAD
+
 // (hey Pam dude, wanna listen to some records?)
-=======
+
 // TYLER TYLER TYLER
->>>>>>> refs/remotes/origin/master
+
 </string>
           </argument>
         </arguments>
