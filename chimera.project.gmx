@@ -102,8 +102,10 @@
       <object>objects\obj_def_minus</object>
     </objects>
     <object>objects\obj_deck</object>
+    <object>objects\obj_start_button</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\menu</room>
     <room>rooms\play</room>
   </rooms>
   <help>
