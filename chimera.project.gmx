@@ -106,6 +106,7 @@
     </objects>
     <object>objects\obj_deck</object>
     <object>objects\obj_start_button</object>
+    <object>objects\obj_card_one</object>
     <object>objects\obj_deck_menu_button</object>
   </objects>
   <rooms name="rooms">

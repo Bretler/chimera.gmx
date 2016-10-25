@@ -6,7 +6,7 @@ This script:
 * Assigns that sprite as the sprite_index of the object
 * Deletes the surface
 ***********************************/
-
+current_card_number = card_number;
 /**********************************
 Create new surface
 ***********************************/
@@ -20,27 +20,27 @@ Draw onto surface
 ***********************************/
 
     // draw the card illustration image first
-    draw_sprite(spr_card_img,card_number,151,144+173);
+    draw_sprite(spr_card_img,(current_card_number + 1),151,317); //the y parameter used to be "144+173". Wasn't sure why and it seems to work with just the result.
     
     // draw the card template second
-    if global.my_csv[card_number,2] = "w" { // card color
+    if global.my_csv[current_card_number,2] = "w" { // card color
         draw_sprite(spr_card_template, 5, 0, 0);  
-    } else if global.my_csv[card_number,2] = "r" {
+    } else if global.my_csv[current_card_number,2] = "r" {
         draw_sprite(spr_card_template, 4, 0, 0);
-    } else if global.my_csv[card_number,2] = "g" {
+    } else if global.my_csv[current_card_number,2] = "g" {
         draw_sprite(spr_card_template, 3, 0, 0);   
-    } else if global.my_csv[card_number,2] = "u" {
+    } else if global.my_csv[current_card_number,2] = "u" {
         draw_sprite(spr_card_template, 2, 0, 0);    
-    } else if global.my_csv[card_number,2] = "b" {
+    } else if global.my_csv[current_card_number,2] = "b" {
         draw_sprite(spr_card_template, 1, 0, 0); 
     }
     
     // draw the card text third
     draw_set_color(c_black)
     draw_set_font(roboto_condensed_12);
-    draw_text(17, 11, global.my_csv[card_number,3]) // cost
+    draw_text(17, 11, global.my_csv[current_card_number,3]) // cost
     draw_set_color(c_white);
-    draw_text(50, 11, global.my_csv[card_number,4]); // name
+    draw_text(50, 11, global.my_csv[current_card_number,4]); // name
     draw_set_color(c_black); // reset
         if (card_attk < card_attk_starting) draw_set_color(c_red)
         if (card_attk > card_attk_starting) draw_set_color(c_green)
@@ -51,7 +51,7 @@ Draw onto surface
     draw_text(332, 11, card_def); // var set by create event to change string to real
     draw_set_color(c_black); // reset
     draw_set_font(roboto_condensed_10);
-    draw_text_ext(50, 50, global.my_csv[card_number, 7], 15, 275); // desc
+    draw_text_ext(50, 50, global.my_csv[current_card_number, 7], 15, 275); // desc
     
 /**********************************
 Creates a sprite from the surface
