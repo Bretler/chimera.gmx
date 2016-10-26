@@ -96,7 +96,6 @@
   <objects name="objects">
     <object>objects\obj_card_parent</object>
     <object>objects\obj_global_controller</object>
-    <object>objects\obj_deck_menu_controller</object>
     <object>objects\obj_mouse_orb</object>
     <objects name="attk/def buttons">
       <object>objects\obj_attk_plus</object>
@@ -106,12 +105,10 @@
     </objects>
     <object>objects\obj_deck</object>
     <object>objects\obj_start_button</object>
-    <object>objects\obj_deck_menu_button</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\menu</room>
     <room>rooms\play</room>
-    <room>rooms\deck_menu</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
