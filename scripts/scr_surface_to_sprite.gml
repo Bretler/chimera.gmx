@@ -7,6 +7,7 @@ This script:
 * Deletes the surface
 ***********************************/
 
+
 /**********************************
 Create new surface
 ***********************************/
@@ -20,7 +21,7 @@ Draw onto surface
 ***********************************/
 
     // draw the card illustration image first
-    draw_sprite(spr_card_img,card_number,151,144+173);
+    draw_sprite(spr_card_img,real(card_number),151,144+173);
     
     // draw the card template second
     if global.my_csv[card_number,2] = "w" { // card color

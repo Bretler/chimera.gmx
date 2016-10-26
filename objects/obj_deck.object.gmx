@@ -38,8 +38,13 @@ Initialize ds_list
 **************************/
 
 card_list = ds_list_create(); // card_list is now the ds
-ds_list_add(card_list, 1, 2, 3, 4, 5); // card_numbers of cards in deck
+for (i = 1; i &lt; real(array_height_2d(global.my_csv)); i ++) {
+cn = global.my_csv[i, 0];
+ds_list_add(card_list, cn); // card_numbers of cards in deck
+}
 ds_list_shuffle(card_list); // optional shuffle function, can be blocked out
+
+
 
 base_depth = -11; // deck starting depth (testing purposes 10/18)
 
