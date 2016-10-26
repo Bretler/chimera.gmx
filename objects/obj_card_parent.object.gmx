@@ -27,17 +27,15 @@
             <kind>1</kind>
             <string>/// Initialize the card
 
-
 /**************************
 Initialize variables
 **************************/
 
 // csv &amp; surface
-card_number = global.deck[| ds_list_size(global.deck)];  // card row in csv array
-card_id = id; // unique card id
+card_number = 3; // card row in csv array
 surface = noone; // surface
 spr_custom_card = 0; // sprite_var that surface is drawn onto
-visible = false;
+
 // selection
 selected = false; // is card selected?
 
@@ -47,25 +45,17 @@ clicks = 0; // (used in alarm event)
 // card state
 sapped = false; // (used in left pressed)
 
-//cost
-card_cost = 0; // store for safe keeping
-
-//description
-card_description = 0; // store for safe keeping
-
-//type
-card_type = 0; // store for safe keeping
-
-//name
-card_name = ""; // store for safe keeping
-
 // attk / def (this code is found here for when the card is spawned, then in the scr_card init for when it's assigned a card_number)
 card_attk_starting = real(global.my_csv[card_number, 5]); // store for safe keeping
 card_def_starting = real(global.my_csv[card_number, 6]); // store for safe keeping
 card_attk = card_attk_starting // adjustable values
 card_def = card_def_starting // adjustable values
 
+/**************************
+Create card sprite
+**************************/
 
+scr_surface_to_sprite();
 
 
 </string>
@@ -215,6 +205,22 @@ global.can_select = true; // selection of cards is allowed
 Floating Modifiers
 **************************/
 
+// apply floating def amount to card def
+if (global.floating_def == true){
+    card_def +=  global.floating_def_amount;
+    global.floating_def_amount = 0;
+    global.floating_def = false;
+    scr_surface_to_sprite();
+}
+
+// apply floating attk amount to card attk
+if (global.floating_attk == true) { 
+    card_attk += global.floating_attk_amount;
+    global.floating_attk_amount = 0;
+    global.floating_attk = false;
+    scr_surface_to_sprite();
+}
+
 /**************************
 Return card to the deck
 **************************/
@@ -222,12 +228,9 @@ Return card to the deck
 if (scr_lowest_depth(obj_deck) == noone) exit; // If there's no card above the obj_deck, we need not proceed.
 
 // add released card to obj_deck's card_list
-
 with (obj_deck){
-    global.floating_number = obj_card_parent.card_number;
-    ds_list_add(global.deck, obj_card_parent.card_number);
-    base_depth += 1;
-    global.deck_size++;
+  ds_list_add(card_list, other.card_number);
+  base_depth += 1;
 }
 
 instance_destroy(); // destroy the card object
@@ -255,16 +258,18 @@ instance_destroy(); // destroy the card object
             <kind>1</kind>
             <string>/// Selection, double-click, and sap code
 
- // selection code
-    if (global.can_select){ // &amp;amp; we're not currently selecting a card -
+if (scr_lowest_depth(object_index) != id) exit; // only run for the instance that's the lowest depth
+
+if (!global.floating_def and !global.floating_attk) { // if we're not floating a modifier -
+
+    // selection code
+    if (global.can_select){ // &amp; we're not currently selecting a card -
         selected = true; // "select" clicked card
         global.can_select = false; // don't allow selection of other cards
         xpart = mouse_x - x; // calculate distance between mouse, and card edge
         ypart = mouse_y - y; // calculate distance between mouse, and card top
     }
-
-if (scr_lowest_depth(object_index) != id) exit; // only run for the instance that's the lowest depth
-
+    
     // double-click &amp; sap code
     if (clicks == 0) {
         clicks = 1; // document click 1 of 2
@@ -276,6 +281,7 @@ if (scr_lowest_depth(object_index) != id) exit; // only run for the instance tha
         scr_surface_to_sprite(); // redraw card
         clicks = 0; // resets clicks to 0
     }
+} 
 </string>
           </argument>
         </arguments>

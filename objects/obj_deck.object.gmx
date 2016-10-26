@@ -37,41 +37,13 @@ Initialize variables
 Initialize ds_list
 **************************/
 
+card_list = ds_list_create(); // card_list is now the ds
+ds_list_add(card_list, 1, 2, 3, 4, 5); // card_numbers of cards in deck
+ds_list_shuffle(card_list); // optional shuffle function, can be blocked out
 
-base_depth = 0;
+base_depth = -11; // deck starting depth (testing purposes 10/18)
 
-/**************************
-Load Cards Into Deck
-**************************/
 
-for(i = 0; ds_list_size(global.deck) &lt; global.deck_size; i++) {
-    s = global.my_csv[i, 0]
-    ds_list_add(global.deck, s)
-    
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>deck_size = ds_list_size(global.deck)
 
 </string>
           </argument>
@@ -95,31 +67,29 @@ for(i = 0; ds_list_size(global.deck) &lt; global.deck_size; i++) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>/// Interact with the deck
+
+var size = ds_list_size(card_list); // current deck size (assigns card_number in scr_card_init)
+
 /**************************
 Are we allowed to play with the deck?
 **************************/
 
-if (global.deck_size = 0) exit; // if there's no cards in the deck, can't do shit
+if (size == 0) exit; // if there's no cards in the deck, can't do shit
 if (scr_lowest_depth(obj_card_parent) != noone) exit; // if there's a card above the deck, you can't play with the deck
 
 /**************************
 Pull a card from the deck
 **************************/
 
- 
-
-instance_create(x,y, obj_card_parent);
-with(obj_card_parent) {
-scr_surface_to_sprite();
-visible = true;
+with(instance_create(x, y, obj_card_parent)) { // create a new card @ deck
+    scr_card_init(other.card_list[|size - 1]);// assign "card_number" to new obj_card_parent
+    depth = other.base_depth; // give drawn card the current depth of the deck (testing 10/18)
+    other.base_depth -= 1; // lower the depth of the deck for the next card (testing 10/18)
+    event_perform(ev_mouse, ev_left_press); // makes the new card "selected"
 }
 
-ds_list_delete(global.deck, global.deck_size); // delete the top card info from the deck
-global.deck_size = global.deck_size - 1;
-
-
-
+ds_list_delete(card_list, size - 1); // delete the top card info from the deck
 
 </string>
           </argument>

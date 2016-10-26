@@ -38,23 +38,9 @@ Initialize variables
 **************************/
 
 global.can_select = true; // allow selection of cards t/f
-global.deck_size = (array_height_2d(global.my_csv)-1);
-global.floating_card_number = 0;
-/**************************
-Create Deck
-**************************/
-
-global.deck = ds_list_create(); // deck is now the ds
 
 
 
-
-//while (ds_list_size(global.deck) &lt; (deck_size - 1)){
-   
- //   ds_list_add(global.deck, obj_card_parent)
-//    global.temp = global.temp + 1;
-    
-//}
 </string>
           </argument>
         </arguments>

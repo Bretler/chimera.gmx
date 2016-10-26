@@ -67,7 +67,7 @@ Button Text
 **************************/
 
 draw_set_font(roboto_condensed_12);
-draw_text (x+20,y+15, "Deck");
+draw_text (x+20,y+15, "Start");
 </string>
           </argument>
         </arguments>
