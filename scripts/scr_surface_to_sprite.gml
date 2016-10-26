@@ -23,25 +23,26 @@ Draw onto surface
     // draw the card illustration image first
     draw_sprite(spr_card_img,real(card_number),151,144+173);
     
-    // draw the card template second
-    if global.my_csv[card_number,2] = "w" { // card color
+    
+    if color = "w" { // card color
         draw_sprite(spr_card_template, 5, 0, 0);  
-    } else if global.my_csv[card_number,2] = "r" {
+    } else if color = "r" {
         draw_sprite(spr_card_template, 4, 0, 0);
-    } else if global.my_csv[card_number,2] = "g" {
+    } else if color = "g" {
         draw_sprite(spr_card_template, 3, 0, 0);   
-    } else if global.my_csv[card_number,2] = "u" {
+    } else if color = "u" {
         draw_sprite(spr_card_template, 2, 0, 0);    
-    } else if global.my_csv[card_number,2] = "b" {
+    } else if color = "b" {
         draw_sprite(spr_card_template, 1, 0, 0); 
     }
+    
     
     // draw the card text third
     draw_set_color(c_black)
     draw_set_font(roboto_condensed_12);
-    draw_text(17, 11, global.my_csv[card_number,3]) // cost
+    draw_text(17, 11, cost) // cost
     draw_set_color(c_white);
-    draw_text(50, 11, global.my_csv[card_number,4]); // name
+    draw_text(50, 11, name); // name
     draw_set_color(c_black); // reset
         if (card_attk < card_attk_starting) draw_set_color(c_red)
         if (card_attk > card_attk_starting) draw_set_color(c_green)
@@ -52,7 +53,7 @@ Draw onto surface
     draw_text(332, 11, card_def); // var set by create event to change string to real
     draw_set_color(c_black); // reset
     draw_set_font(roboto_condensed_10);
-    draw_text_ext(50, 50, global.my_csv[card_number, 7], 15, 275); // desc
+    draw_text_ext(50, 50, description, 15, 275); // desc
     
 /**********************************
 Creates a sprite from the surface

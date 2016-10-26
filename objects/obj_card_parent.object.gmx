@@ -32,7 +32,6 @@ Initialize variables
 **************************/
 
 // csv &amp; surface
-card_number = noone; // card row in csv array
 surface = noone; // surface
 spr_custom_card = 0; // sprite_var that surface is drawn onto
 
@@ -44,6 +43,19 @@ clicks = 0; // (used in alarm event)
 
 // card state
 sapped = false; // (used in left pressed)
+
+/**************
+Card Stats
+***************/
+
+card_number = noone; // card row in csv array
+name = noone;
+cost = noone;
+type = noone;
+color = noone;
+description = noone;
+card_img = noone;
+
 
 // attk / def (this code is found here for when the card is spawned, then in the scr_card init for when it's assigned a card_number)
 card_attk_starting = noone; // store for safe keeping
@@ -103,7 +115,7 @@ clicks = 0; //resets clicks
             <kind>1</kind>
             <string>/// Should this card be destroyed?
 
-if (card_def &lt;= 0) {
+if (card_def &lt;= 0 &amp;&amp; type == "creature") {
     audio_play_sound(snd_squish, 10, false);
     instance_destroy();
     sprite_delete(spr_custom_card);

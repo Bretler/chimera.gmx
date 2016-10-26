@@ -12,6 +12,16 @@ Assign card_number of new card
 card_number = argument0; // sets card_number to obj_deck's card_list size - 1
 
 /**********************************
+Card details
+**********************************/
+name = global.my_csv[card_number, 4];
+cost = global.my_csv[card_number, 3]
+type = global.my_csv[card_number, 1];
+color = global.my_csv[card_number, 2];
+description = global.my_csv[card_number, 7]; 
+
+
+/**********************************
 Initialize attk / def values
 ***********************************/
 
